@@ -45,7 +45,10 @@ src/conf:
 - webpack.config.dev.js - webpack config used during development
 - webpack.config.production.js - webpack config used for production
 
-## Running the project ##
+## Running the project (development) ##
 - copy src/conf/Config.dev.js.example to src/conf/Config.dev.js, modify as needed
 - `npm install`, which will run a set of important postinstall tasks
 - `npm start`, which will set up the babel file watching, the webpack dev server, the gulp file watching and start a nodemon server
+
+## Running the project (production) ##
+The postinstall scripts will do all of the setup for you. Either start your server with `npm run server`, or use the provided Procfile. For heroku, a simple `heroku create` followed by `git push` should be enough.
