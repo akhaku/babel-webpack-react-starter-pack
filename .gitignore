@@ -1,0 +1,5 @@
+Config.dev.js
+lib
+*.swp
+*.swo
+node_modules

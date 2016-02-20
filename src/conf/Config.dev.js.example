@@ -1,0 +1,12 @@
+/* eslint-env node */
+
+module.exports = {
+  override: function(Config) {
+    Config.webpackDevServerHost = 'localhost';
+    Config.webpackDevServerPort = 8080;
+    Config.webpackDevServerBaseUrl = 'http://' + Config.webpackDevServerHost + ':'
+        + Config.webpackDevServerPort;
+    Config.baseJsUrl = Config.webpackDevServerBaseUrl + Config.baseJsPath;
+    Config.baseCssUrl = Config.baseJsUrl;
+  },
+};

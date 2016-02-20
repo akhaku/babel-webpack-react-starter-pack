@@ -1,0 +1,66 @@
+{
+  "name": "lease-stats",
+  "version": "1.0.0",
+  "description": "For keeping track of my lease stats",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src",
+    "clean": "rm -rf lib",
+    "dev-server": "node lib/server/webpack",
+    "watch-js": "babel src -d lib -w",
+    "watch-all": "gulp stream-all",
+    "start": "npm run watch-js & npm run watch-all & npm run dev-server & npm run server",
+    "babel": "babel src -d lib",
+    "copy-all": "gulp copy-all",
+    "webpack": "webpack --config src/conf/webpack.config.production.js",
+    "server": "nodemon lib/server/server",
+    "symlink": "node -e \"var s='../lib',d='node_modules/app',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\"",
+    "postinstall": "npm run babel && npm run copy-all && npm run symlink && npm run webpack && gulp remove-less-from-lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akhaku/lease-stats.git"
+  },
+  "author": "Ammar Khaku <ammar.khaku@gmail.com>",
+  "license": "Unlicense",
+  "engines": {
+    "node": "4.2.3",
+    "npm": "2.14.7"
+  },
+  "homepage": "https://github.com/akhaku/lease-stats#readme",
+  "private": true,
+  "dependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-transform-class-properties": "^6.5.2",
+    "babel-plugin-transform-object-rest-spread": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "del": "^2.2.0",
+    "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-print": "^2.0.1",
+    "gulp-watch": "^4.3.5",
+    "jade": "^1.11.0",
+    "less": "^2.6.0",
+    "less-loader": "^2.2.2",
+    "lodash": "^4.3.0",
+    "merge-stream": "^1.0.0",
+    "nodemon": "^1.8.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.13"
+  },
+  "devDependencies": {
+    "eslint": "^2.0.0",
+    "eslint-plugin-react": "^3.16.1",
+    "react-hot-loader": "^1.3.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
